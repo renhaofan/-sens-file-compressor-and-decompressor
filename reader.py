@@ -30,8 +30,8 @@ def main():
     sd.export_depth_images(os.path.join(opt.output_path, 'depth'))
   if opt.export_color_images:
     sd.export_color_images(os.path.join(opt.output_path, 'color'))
-  # if opt.export_poses:
-  #   sd.export_poses(os.path.join(opt.output_path, 'pose'))
+  if opt.export_poses:
+    sd.export_poses(os.path.join(opt.output_path, 'pose'))
   if opt.export_intrinsics:
     sd.export_intrinsics(os.path.join(opt.output_path, 'intrinsic'))
 
