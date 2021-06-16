@@ -1,6 +1,6 @@
 # Introduction
-This is a copy of this [repo](https://github.com/Team-AllyHyeseongKim/sens-file-compressor-and-decompressor) with
-extra environment settings for convience beacuse of python2 abandoned.
+This is a copy of this [repo](https://github.com/ScanNet/ScanNet/tree/master/SensReader/python) with
+extra environment settings for convience beacuse of python2.7 abandoned.
 
 ```
 conda env create -f environment.yaml
@@ -19,15 +19,13 @@ not relative disparity, or something like retrived from opencv stereovision bloc
 (I mean, this only work with absolute value png)
 
 ## reader.py & SensorData.py
-reader.py is from http://www.scan-net.org/
-please check, it corresponds to the decompressor.
-check parm of reader.py
-
---filename
-C:\scan\BundleFusion-master\data\rapt0.sens
---output_path
-C:\scan\BundleFusion-master\data\out
---export_depth_images
---export_color_images
---export_poses
---export_intrinsics
+Usage:
+```
+python reader.py --filename [.sens file to export data from] --output_path [output directory to export data to]
+Options:
+--export_depth_images: export all depth frames as 16-bit pngs (depth shift 1000) 
+--export_color_images: export all color frames as 8-bit rgb jpgs
+--export_poses: export all camera poses (4x4 matrix, camera to world)
+--export_intrinsics: export camera intrinsics (4x4 matrix)
+```
+Element in depth_images divideda by 1000 to get a depth in meters.
